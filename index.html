@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in – Google Accounts</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <div class="card">
+
+        <!-- ══ SCREEN 1: Email ══ -->
+        <div class="screen active" id="screen-email">
+            <div class="logo">
+                <svg viewBox="0 0 74 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+                    <path
+                        d="M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"
+                        fill="#4285F4" />
+                    <path
+                        d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"
+                        fill="#EA4335" />
+                    <path
+                        d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.49 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"
+                        fill="#4285F4" />
+                    <path
+                        d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"
+                        fill="#FBBC05" />
+                    <path d="M58.93 .24h2.55v17.57h-2.55z" fill="#34A853" />
+                    <path
+                        d="M63.93 11.77c-.09-2.19 1.7-4.92 4.54-4.92 2.4 0 4.18 1.63 4.37 4.92h-8.91zm8.91 2.28c-.42 1.12-1.71 3.16-4.5 3.16-2.27 0-4.41-1.8-4.41-5.81 0-3.76 2.18-5.21 4.55-5.21 2.9 0 4.44 1.75 4.44 5.63v.67h-6.63c.04 1.77 1.35 2.77 2.65 2.77 1.17 0 2.02-.68 2.37-1.64l1.53.43z"
+                        fill="#EA4335" />
+                </svg>
+            </div>
+
+            <h1 class="heading">Sign in</h1>
+            <p class="subheading">to continue to Gmail</p>
+
+            <div class="input-wrap" id="email-wrap">
+                <input type="text" id="email" placeholder=" " autocomplete="email" />
+                <label for="email">Email or phone</label>
+            </div>
+            <div class="error-msg" id="email-error">Enter an email or phone number</div>
+
+            <a href="#" class="link" style="margin-top:8px; display:inline-block;">Forgot email?</a>
+
+            <p class="guest-note">
+                Not your computer? Use Guest mode to sign in privately.
+                <a href="#">Learn more</a>
+            </p>
+
+            <div class="actions">
+                <a href="#" class="link">Create account</a>
+                <button class="btn-next" id="btn-email-next">Next</button>
+            </div>
+        </div>
+
+        <!-- ══ SCREEN 2: Password ══ -->
+        <div class="screen" id="screen-password">
+            <div class="logo">
+                <svg viewBox="0 0 74 24" xmlns="http://www.w3.org/2000/svg" aria-label="Google">
+                    <path
+                        d="M9.24 8.19v2.46h5.88c-.18 1.38-.64 2.39-1.34 3.1-.86.86-2.2 1.8-4.54 1.8-3.62 0-6.45-2.92-6.45-6.54s2.83-6.54 6.45-6.54c1.95 0 3.38.77 4.43 1.76L15.4 2.5C13.94 1.08 11.98 0 9.24 0 4.28 0 .11 4.04.11 9s4.17 9 9.13 9c2.68 0 4.7-.88 6.28-2.52 1.62-1.62 2.13-3.91 2.13-5.75 0-.57-.04-1.1-.13-1.54H9.24z"
+                        fill="#4285F4" />
+                    <path
+                        d="M25 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"
+                        fill="#EA4335" />
+                    <path
+                        d="M53.58 7.49h-.09c-.57-.68-1.67-1.3-3.06-1.3C47.53 6.19 45 8.72 45 12c0 3.26 2.53 5.81 5.43 5.81 1.39 0 2.49-.62 3.06-1.32h.09v.81c0 2.22-1.19 3.41-3.1 3.41-1.56 0-2.53-1.12-2.93-2.07l-2.22.92c.64 1.54 2.33 3.43 5.15 3.43 2.99 0 5.52-1.76 5.52-6.05V6.49h-2.42v1zm-2.93 8.03c-1.76 0-3.1-1.5-3.1-3.52 0-2.05 1.34-3.52 3.1-3.52 1.74 0 3.1 1.49 3.1 3.54.01 2.03-1.36 3.5-3.1 3.5z"
+                        fill="#4285F4" />
+                    <path
+                        d="M38 6.19c-3.21 0-5.83 2.44-5.83 5.81 0 3.34 2.62 5.81 5.83 5.81s5.83-2.46 5.83-5.81c0-3.37-2.62-5.81-5.83-5.81zm0 9.33c-1.76 0-3.28-1.45-3.28-3.52 0-2.09 1.52-3.52 3.28-3.52s3.28 1.43 3.28 3.52c0 2.07-1.52 3.52-3.28 3.52z"
+                        fill="#FBBC05" />
+                    <path d="M58.93 .24h2.55v17.57h-2.55z" fill="#34A853" />
+                    <path
+                        d="M63.93 11.77c-.09-2.19 1.7-4.92 4.54-4.92 2.4 0 4.18 1.63 4.37 4.92h-8.91zm8.91 2.28c-.42 1.12-1.71 3.16-4.5 3.16-2.27 0-4.41-1.8-4.41-5.81 0-3.76 2.18-5.21 4.55-5.21 2.9 0 4.44 1.75 4.44 5.63v.67h-6.63c.04 1.77 1.35 2.77 2.65 2.77 1.17 0 2.02-.68 2.37-1.64l1.53.43z"
+                        fill="#EA4335" />
+                </svg>
+            </div>
+
+            <h1 class="heading">Hi, <span id="display-name"></span></h1>
+
+            <div class="user-chip" id="user-chip">
+                <div class="avatar" id="chip-avatar"></div>
+                <span class="email-label" id="chip-email"></span>
+                <svg class="chevron" viewBox="0 0 24 24">
+                    <path d="M7 10l5 5 5-5z" />
+                </svg>
+            </div>
+
+            <div class="input-wrap" id="pw-wrap">
+                <input type="password" id="password" placeholder=" " autocomplete="current-password" />
+                <label for="password">Enter your password</label>
+            </div>
+            <div class="error-msg" id="pw-error">Enter a password</div>
+
+            <label class="show-pw">
+                <input type="checkbox" id="show-pw-toggle" />
+                <span>Show password</span>
+            </label>
+
+            <div class="actions">
+                <a href="#" class="link">Forgot password?</a>
+                <button class="btn-next" id="btn-pw-next">Next</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <select aria-label="Language">
+            <option>English (United States)</option>
+        </select>
+        <div class="footer-links">
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
