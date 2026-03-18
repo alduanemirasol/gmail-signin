@@ -40,6 +40,6 @@ function handlePwNext() {
 function goBack() {
   pwInput.value = "";
   clearError(pwWrap, pwError);
-  showScreen("screen-email");
+  showScreen("screen-email", "back");
   setTimeout(() => document.getElementById("email").focus(), 50);
 }

@@ -33,7 +33,7 @@ function handleEmailNext() {
 
   setTimeout(() => {
     populatePasswordScreen(val);
-    showScreen("screen-password");
+    showScreen("screen-password", "forward");
     setTimeout(() => document.getElementById("password").focus(), 50);
   }, 1500);
 }
