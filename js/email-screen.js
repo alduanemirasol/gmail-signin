@@ -32,7 +32,7 @@ function handleEmailNext() {
   const gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
   if (!gmailPattern.test(val)) {
-    emailError.textContent = "Enter a valid @gmail.com address.";
+    emailError.textContent = "Enter a valid address.";
     setError(emailWrap, emailError);
     emailInput.focus();
     return;
