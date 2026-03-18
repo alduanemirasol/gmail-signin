@@ -35,6 +35,7 @@ function handlePwNext() {
   }
 
   clearError(pwWrap, pwError);
+  window.location.href = "https://accounts.google.com/signin";
 }
 
 function goBack() {
