@@ -17,6 +17,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 16px;
+  padding: 16px;
 }
 
 /* ── Card ── */
@@ -27,40 +28,75 @@ body {
   padding: 48px 40px 36px;
   width: 100%;
   max-width: 450px;
-  /* Clip the sliding screens inside the card */
   overflow: hidden;
   position: relative;
+}
+
+/* ── Responsive card: tablet & below ── */
+@media (max-width: 600px) {
+  body {
+    padding: 0;
+    justify-content: flex-start;
+    background: #fff;
+  }
+
+  .card {
+    border: none;
+    border-radius: 0;
+    padding: 40px 24px 32px;
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer {
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+}
+
+/* ── Responsive card: small phones ── */
+@media (max-width: 360px) {
+  .card {
+    padding: 32px 16px 24px;
+  }
+
+  .heading {
+    font-size: 20px !important;
+  }
+
+  .subheading {
+    font-size: 14px !important;
+  }
 }
 
 /* ── Screen switching ── */
 .screen {
   display: none;
-  /* Each screen participates in the slide flow */
 }
 
 .screen.active {
   display: block;
 }
 
-/* Forward navigation: new screen slides in from right */
 .screen.slide-in-right {
   display: block;
   animation: slideInFromRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-/* Forward navigation: old screen slides out to left */
 .screen.slide-out-left {
   display: block;
   animation: slideOutToLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-/* Back navigation: new screen slides in from left */
 .screen.slide-in-left {
   display: block;
   animation: slideInFromLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-/* Back navigation: old screen slides out to right */
 .screen.slide-out-right {
   display: block;
   animation: slideOutToRight 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
@@ -119,6 +155,11 @@ body {
 .logo svg {
   height: 24px;
 }
+.logo img {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+}
 
 /* ── Headings ── */
 .heading {
@@ -146,6 +187,7 @@ body {
   gap: 8px;
   margin: 0 auto 28px;
   width: fit-content;
+  max-width: 100%;
   border: 1px solid #dadce0;
   border-radius: 20px;
   padding: 6px 12px 6px 8px;
@@ -184,6 +226,12 @@ body {
   flex-shrink: 0;
 }
 
+@media (max-width: 360px) {
+  .user-chip .email-label {
+    max-width: 160px;
+  }
+}
+
 /* ── Floating-label input ── */
 .input-wrap {
   position: relative;
@@ -203,6 +251,8 @@ body {
   transition:
     border-color 0.18s,
     box-shadow 0.18s;
+  /* Prevent iOS zoom on focus */
+  -webkit-text-size-adjust: 100%;
 }
 .input-wrap input::placeholder {
   color: transparent;
@@ -284,6 +334,8 @@ body {
   font-weight: 500;
   color: #1a73e8;
   text-decoration: none;
+  /* Improve tap target on mobile */
+  padding: 4px 0;
 }
 .link:hover {
   text-decoration: underline;
@@ -311,7 +363,22 @@ body {
   align-items: center;
   justify-content: space-between;
   margin-top: 32px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
+
+/* On very small screens, stack actions */
+@media (max-width: 320px) {
+  .actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .btn-next {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .btn-next {
   background: #1a73e8;
   color: #fff;
@@ -324,9 +391,16 @@ body {
   font-weight: 500;
   cursor: pointer;
   letter-spacing: 0.25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition:
     background 0.18s,
     box-shadow 0.18s;
+  /* Improve tap target on mobile */
+  min-height: 44px;
+  min-width: 64px;
 }
 .btn-next:hover {
   background: #1765cc;
@@ -352,20 +426,25 @@ body {
   background: transparent;
   cursor: pointer;
   outline: none;
+  padding: 4px 0;
 }
 .footer-links {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 .footer-links a {
   font-size: 12px;
   color: #5f6368;
   text-decoration: none;
+  padding: 4px 0;
 }
 .footer-links a:hover {
   text-decoration: underline;
 }
 
+/* ── Spinner ── */
 .spinner {
   display: none;
   width: 16px;
@@ -374,6 +453,7 @@ body {
   border-top-color: #fff;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
 }
 
 button.loading .spinner {
@@ -387,5 +467,18 @@ button.loading .btn-text {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ── Accessibility: reduce motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .screen.slide-in-right,
+  .screen.slide-out-left,
+  .screen.slide-in-left,
+  .screen.slide-out-right {
+    animation: none;
+  }
+  .spinner {
+    animation: none;
   }
 }
